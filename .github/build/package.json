@@ -1,0 +1,8 @@
+{
+    "name": "knolleary-til",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "nodegit": "^0.27.0"
+    }
+}

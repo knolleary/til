@@ -1,0 +1,41 @@
+name: Build README
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+      # We need full history to introspect created/updated:
+      with:
+        fetch-depth: 0
+        path: main
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Install node dependencies
+      run: |-
+          cd main/.github/build
+          npm install
+    - name: Update README
+      run: |-
+        cd main
+        node .github/build/build.js
+        cat README.md
+    - name: Commit and push if README changed
+      run: |-
+        cd main
+        git diff
+        git config --global user.email "til-readme-bot@example.com"
+        git config --global user.name "TIL-README-bot"
+        git diff --quiet || (git add README.md && git commit -m "Updated README")
+        git push
