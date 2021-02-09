@@ -26,18 +26,15 @@ async function getFileHistory() {
         const headCommit = await repo.getBranchCommit("main");
         revwalk.push(headCommit.sha());
         // step through all OIDs for the given reference
-        const commits = [];
         let hasNext = true;
-        let parentTree = null;
         while (hasNext) {
             try {
                 const oid = await revwalk.next();
                 if (oid) {
                     const commit = await repo.getCommit(oid);
-                    const thisTree = await commit.getTree();
-                    if (parentTree) {
-                        const diff = await thisTree.diff(parentTree);
-                        const patches = await diff.patches();
+                    const diffs = await commit.getDiff();
+                    for (let i=0,l=diffs.length; i<l; i++) {
+                        const patches = await diffs[i].patches();
                         for (patch of patches) {
                             const filePath = patch.newFile().path();
                             if (files[filePath]) {
@@ -48,8 +45,7 @@ async function getFileHistory() {
                                 }
                             }
                         }
-                    }
-                    parentTree = thisTree;
+                    };
                 }
             } catch (err) {
                 hasNext = false;
