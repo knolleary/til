@@ -7,6 +7,6 @@ for the poor quality of the answers.
 
 Inspired by [simonw/til](https://github.com/simonw/til) but rewritten in Node rather than Python.
 
-There are <!-- CS -->999<!-- CE --> things.
+There are <!-- CS -->0<!-- CE --> things.
 
 <!-- TS --><!-- TE -->
