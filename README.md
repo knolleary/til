@@ -7,6 +7,8 @@ for the poor quality of the answers.
 
 Inspired by [simonw/til](https://github.com/simonw/til) but rewritten in Node rather than Python.
 
-There are <!-- CS -->0<!-- CE --> things.
+There are <!-- CS -->1<!-- CE --> things.
 
-<!-- TS --><!-- TE -->
+<!-- TS -->
+## ffmpeg
+ - [Turn an image sequence into a video](ffmpeg/image-sequence-to-video.md) - 2022-01-08<!-- TE -->
