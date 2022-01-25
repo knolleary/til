@@ -84,7 +84,7 @@ function sanitize(str) {
     const things = lines.join("\n");
 
     let readme = fs.readFileSync(__dirname+"/../../README.md","utf-8");
-    readme = readme.replace(/<!-- CS -->.*<!-- CE -->/,`<!-- CS -->${count}<!-- CE -->`);
-    readme = readme.replace(/<!-- TS -->.*<!-- TE -->/,`<!-- TS -->${things}<!-- TE -->`);
+    readme = readme.replace(/<!-- CS -->[\s\S]*<!-- CE -->/m,`<!-- CS -->${count}<!-- CE -->`);
+    readme = readme.replace(/<!-- TS -->[\s\S]*<!-- TE -->/m,`<!-- TS -->\n\n${things}\n\n<!-- TE -->`);
     fs.writeFileSync(__dirname+"/../../README.md",readme)
 })();
