@@ -10,5 +10,12 @@ Inspired by [simonw/til](https://github.com/simonw/til) but rewritten in Node ra
 There are <!-- CS -->2<!-- CE --> things.
 
 <!-- TS -->
+
+
+## elgato-key-lights
+ - [Remote Control Elgato Key Lights](elgato-key-lights/remote-control-lights.md) - 2022-01-25
+
 ## ffmpeg
- - [Turn an image sequence into a video](ffmpeg/image-sequence-to-video.md) - 2022-01-08<!-- TE -->
+ - [Turn an image sequence into a video](ffmpeg/image-sequence-to-video.md) - 2022-01-08
+
+<!-- TE -->
